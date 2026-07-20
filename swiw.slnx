@@ -1,0 +1,8 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="swiw/swiw.vcxproj" Id="6ae448e7-5d65-4afc-bf2a-95ceb71dd03f" />
+  <Project Path="swiw_gui_sample/swiw_gui_sample.vcxproj" Id="b0244750-cadd-49a5-9acd-2a06e2fa6f93" />
+</Solution>
