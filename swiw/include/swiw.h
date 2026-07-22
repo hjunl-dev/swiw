@@ -6,7 +6,7 @@ extern "C"
 {
 #endif
 
-	void SWIW_GetVersion();
+	void SWIW_GetVersion(wchar_t* outVersion);
 
 #ifdef __cplusplus
 }
