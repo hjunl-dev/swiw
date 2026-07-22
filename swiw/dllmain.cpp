@@ -1,4 +1,4 @@
-﻿#define WIN32_LEAN_AND_MEAN 
+#define WIN32_LEAN_AND_MEAN 
 // Windows 헤더 파일
 #include <windows.h>
 
@@ -17,4 +17,3 @@ BOOL APIENTRY DllMain(HMODULE hModule,
 	}
 	return TRUE;
 }
-
