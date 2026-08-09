@@ -36,7 +36,7 @@ namespace swiw::platform::concurrent
 		~ArrayBQ() = default;
 
 	public:
-		void Put(const T& item) override
+		void Push(const T& item) override
 		{
 			std::unique_lock<std::mutex> lock(bq_mutex_);
 
@@ -54,7 +54,7 @@ namespace swiw::platform::concurrent
 				state_.empty_check_.notify_one();
 		}
 
-		void Put(T&& item) override
+		void Push(T&& item) override
 		{
 			std::unique_lock<std::mutex> lock(bq_mutex_);
 
@@ -72,7 +72,7 @@ namespace swiw::platform::concurrent
 				state_.empty_check_.notify_one();
 		}
 
-		T Take() override
+		T Pop() override
 		{
 			std::unique_lock<std::mutex> lock(bq_mutex_);
 
