@@ -8,23 +8,13 @@
 * @brief Blocking Queue for Producer-Consumer pattern.
 * @tparam T The type of items stored in the queue.
 */
-namespace swiw::platform::concurrent
+namespace swiw::concurrent
 {
-	class BQException : public std::exception
-	{
-	public:
-		explicit BQException(const char* message) : std::exception(message) {}
-		explicit BQException(const std::string& message) : std::exception(message.c_str()) {}
-	};
-
 	template<typename T>
 	class BQ
 	{
 	public:
-		BQ() = default;
 		virtual ~BQ() = default;
-
-	public:
 		virtual void Push(const T& item) = 0;
 		virtual void Push(T&& item) = 0;
 		virtual T Pop() = 0;
@@ -34,5 +24,4 @@ namespace swiw::platform::concurrent
 		virtual size_t Size() = 0;
 		virtual size_t Capacity() = 0;
 	};
-
-} // namespace swiw::platform::concurrent
+} // namespace swiw::concurrent

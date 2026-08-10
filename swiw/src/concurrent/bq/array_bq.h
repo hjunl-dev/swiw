@@ -1,5 +1,5 @@
 #pragma once
-#include <src/platform/concurrent/bq.h>
+#include <src/concurrent/bq.h>
 
 #include <mutex>
 #include <atomic>
@@ -7,7 +7,7 @@
 #include <condition_variable>
 
 
-namespace swiw::platform::concurrent
+namespace swiw::concurrent
 {
 	namespace detail
 	{
@@ -167,4 +167,4 @@ namespace swiw::platform::concurrent
 	private:
 		detail::ArrayBQState<T> state_;
 	};
-} // namespace swiw::platform::concurrent
+} // namespace swiw::concurrent

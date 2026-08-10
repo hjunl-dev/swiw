@@ -1,13 +1,13 @@
 #pragma once
-#include <src/platform/concurrent/executor.h>
-#include <src/platform/concurrent/bq.h>
+#include <src/concurrent/executor.h>
+#include <src/concurrent/bq.h>
 
 #include <memory>
 #include <vector>
 #include <atomic>
 
 
-namespace swiw::platform::concurrent
+namespace swiw::concurrent
 {
 	namespace detail
 	{
@@ -35,4 +35,4 @@ namespace swiw::platform::concurrent
 		std::shared_ptr<detail::ThreadPoolState> state_;
 		std::vector<std::unique_ptr<Worker>> workers_;
 	};
-}
+} // namespace swiw::concurrent

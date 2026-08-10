@@ -171,7 +171,7 @@
     <ClCompile Include="src\base\api\swiw.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="src\platform\concurrent\bq\linked_bq.h" />
+    <None Include="src\concurrent\bq\linked_bq.h" />
     <None Include="swiw.def" />
   </ItemGroup>
   <ItemGroup>
@@ -180,10 +180,12 @@
     <ClInclude Include="include\swiw_misc.h" />
     <ClInclude Include="include\swiw_type.h" />
     <ClInclude Include="src\base\runtime\runtime.h" />
-    <ClInclude Include="src\platform\concurrent\bq.h" />
-    <ClInclude Include="src\platform\concurrent\bq\array_bq.h" />
-    <ClInclude Include="src\platform\concurrent\executor.h" />
-    <ClInclude Include="src\platform\concurrent\executor\thread_pool.h" />
+    <ClInclude Include="src\concurrent\bq.h" />
+    <ClInclude Include="src\concurrent\bq\array_bq.h" />
+    <ClInclude Include="src\concurrent\executor.h" />
+    <ClInclude Include="src\concurrent\executor\thread_pool.h" />
+    <ClInclude Include="src\platform\gui.h" />
+    <ClInclude Include="src\platform\gui\window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

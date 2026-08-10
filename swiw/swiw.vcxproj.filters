@@ -26,7 +26,7 @@
     <None Include="swiw.def">
       <Filter>소스 파일</Filter>
     </None>
-    <None Include="src\platform\concurrent\bq\linked_bq.h" />
+    <None Include="src\concurrent\bq\linked_bq.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\swiw.h">
@@ -44,16 +44,22 @@
     <ClInclude Include="src\base\runtime\runtime.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="src\platform\concurrent\bq.h">
+    <ClInclude Include="src\concurrent\bq.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="src\platform\concurrent\bq\array_bq.h">
+    <ClInclude Include="src\concurrent\bq\array_bq.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="src\platform\concurrent\executor.h">
+    <ClInclude Include="src\concurrent\executor.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="src\platform\concurrent\executor\thread_pool.h">
+    <ClInclude Include="src\concurrent\executor\thread_pool.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\platform\gui.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\platform\gui\window.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

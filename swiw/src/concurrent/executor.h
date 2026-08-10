@@ -7,7 +7,7 @@
 /**
 * @brief Executor interface for task execution.
 */
-namespace swiw::platform::concurrent
+namespace swiw::concurrent
 {
 	using Job = std::function<void()>;
 
@@ -48,4 +48,4 @@ namespace swiw::platform::concurrent
 		virtual void Submit(std::function<void()> task) = 0;
 		virtual void Shutdown() = 0;
 	};
-}
+} // namespace swiw::concurrent
