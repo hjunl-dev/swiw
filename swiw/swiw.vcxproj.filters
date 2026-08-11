@@ -21,6 +21,12 @@
     <ClCompile Include="src\base\api\swiw.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="src\base\api\swiw_flat.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="src\base\api\swiw_type_impl.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="swiw.def">
@@ -60,6 +66,27 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="src\platform\gui\window.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\base\api\swiw_type_impl.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\concurrent\executor\thread_per_task.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\concurrent\executor\work_stealing.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\concurrent\channel.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\concurrent\channel\mpsc.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\concurrent\channel\mpmc.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\concurrent\bq\rendezvous_q.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
