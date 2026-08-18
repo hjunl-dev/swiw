@@ -18,10 +18,10 @@ namespace swiw::concurrent
 
 		T value_{};
 
-		[[nodiscard]] constexpr T& operator*()        noexcept { return value; }
-		[[nodiscard]] constexpr const T& operator*()  const noexcept { return value; }
-		[[nodiscard]] constexpr T* operator->()       noexcept { return &value; }
-		[[nodiscard]] constexpr const T* operator->() const noexcept { return &value; }
+		[[nodiscard]] constexpr T& operator*()        noexcept { return value_; }
+		[[nodiscard]] constexpr const T& operator*()  const noexcept { return value_; }
+		[[nodiscard]] constexpr T* operator->()       noexcept { return &value_; }
+		[[nodiscard]] constexpr const T* operator->() const noexcept { return &value_; }
 	};
 
 
