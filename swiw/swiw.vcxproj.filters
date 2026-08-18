@@ -89,5 +89,14 @@
     <ClInclude Include="src\concurrent\bq\rendezvous_q.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="src\concurrent\lock.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\concurrent\lock\owner_mutex.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\concurrent\lock\condition.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

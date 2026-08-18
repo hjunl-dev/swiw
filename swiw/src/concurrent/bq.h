@@ -12,26 +12,18 @@ namespace swiw::concurrent
 {
 	inline constexpr std::size_t kCacheLineAlign = 128;
 
-	template <class T>
-	class alignas(kCacheLineAlign) CachePadded {
-	public:
-		constexpr CachePadded() noexcept(std::is_nothrow_default_constructible_v<T>) = default;
+	template<typename T>
+	struct alignas(kCacheLineAlign) CachePadded {
+		static_assert(alignof(T) <= kCacheLineAlign, "T is over-aligned beyond the pad");
 
-		constexpr explicit CachePadded(T value) noexcept(std::is_nothrow_move_constructible_v<T>)
-			: value_(std::move(value)) {
-		}
-
-		[[nodiscard]] constexpr const T& operator*() const noexcept { return value_; }
-		[[nodiscard]] constexpr const T* operator->() const noexcept { return &value_; }
-		[[nodiscard]] constexpr T& operator*() noexcept { return value_; }
-		[[nodiscard]] constexpr T* operator->() noexcept { return &value_; }
-
-		[[nodiscard]] constexpr const T& get() const noexcept { return value_; }
-		[[nodiscard]] constexpr T& get() noexcept { return value_; }
-
-	private:
 		T value_{};
+
+		[[nodiscard]] constexpr T& operator*()        noexcept { return value; }
+		[[nodiscard]] constexpr const T& operator*()  const noexcept { return value; }
+		[[nodiscard]] constexpr T* operator->()       noexcept { return &value; }
+		[[nodiscard]] constexpr const T* operator->() const noexcept { return &value; }
 	};
+
 
 	static_assert(sizeof(CachePadded<std::atomic<std::size_t>>) == kCacheLineAlign,
 		"alignas 는 sizeof 도 alignof 의 배수로 올림합니다(= Rust repr(align) 과 동일).");

@@ -193,6 +193,9 @@
     <ClInclude Include="src\concurrent\executor\thread_per_task.h" />
     <ClInclude Include="src\concurrent\executor\thread_pool.h" />
     <ClInclude Include="src\concurrent\executor\work_stealing.h" />
+    <ClInclude Include="src\concurrent\lock.h" />
+    <ClInclude Include="src\concurrent\lock\condition.h" />
+    <ClInclude Include="src\concurrent\lock\owner_mutex.h" />
     <ClInclude Include="src\platform\gui.h" />
     <ClInclude Include="src\platform\gui\window.h" />
   </ItemGroup>
