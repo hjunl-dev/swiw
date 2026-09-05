@@ -17,9 +17,9 @@ extern "C"
 
 	void SWIW_Create();
 
-	void SWIW_RegisterCallback();
+	ISwiwAPICallResult* SWIW_RegisterCallback(void* self, SwiwCallbackFn callback, int32_t eventId, void* userData);
 
-	void SWIW_UnregisterCallback();
+	void SWIW_UnregisterCallback(void* self, int32_t eventId);
 
 	void SWIW_GetVersion(wchar_t* outVersion);
 

@@ -21,10 +21,7 @@
     <ClCompile Include="src\base\api\swiw.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="src\base\api\swiw_flat.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="src\base\api\swiw_type_impl.cpp">
+    <ClCompile Include="src\base\api\swiw_c.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -38,13 +35,10 @@
     <ClInclude Include="include\swiw.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="include\swiw_flat.h">
+    <ClInclude Include="include\swiw_c.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="include\swiw_misc.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="include\swiw_type.h">
+    <ClInclude Include="include\swiw_def.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="src\base\runtime\runtime.h">
@@ -68,7 +62,7 @@
     <ClInclude Include="src\platform\gui\window.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="src\base\api\swiw_type_impl.h">
+    <ClInclude Include="src\base\api\swiw_def_internal.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="src\concurrent\executor\thread_per_task.h">
@@ -108,6 +102,9 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="src\platform\net\packet.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="include\swiw_cxx.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
