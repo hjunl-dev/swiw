@@ -98,5 +98,17 @@
     <ClInclude Include="src\concurrent\lock\condition.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="src\platform\net.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\platform\net\sock.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\platform\net\pipe.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\platform\net\packet.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

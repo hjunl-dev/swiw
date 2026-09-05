@@ -198,6 +198,10 @@
     <ClInclude Include="src\concurrent\lock\owner_mutex.h" />
     <ClInclude Include="src\platform\gui.h" />
     <ClInclude Include="src\platform\gui\window.h" />
+    <ClInclude Include="src\platform\net.h" />
+    <ClInclude Include="src\platform\net\packet.h" />
+    <ClInclude Include="src\platform\net\pipe.h" />
+    <ClInclude Include="src\platform\net\sock.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
