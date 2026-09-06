@@ -1,4 +1,11 @@
 LIBRARY "swiw"
 
 EXPORTS
+	SWIW_Init
+	SWIW_Shutdown
+	SWIW_CreateParam
+	SWIW_RegisterCallback
+	SWIW_UnregisterCallback
+	SWIW_CreateWebView
+	SWIW_CreatePopup
 	SWIW_GetVersion

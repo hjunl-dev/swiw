@@ -1,19 +1,19 @@
-/*
+﻿/*
  * file: swiw_type.h
  */
 
 #pragma once
-#include <stdint.h>
 #include <stddef.h>
+#include <stdint.h>
 #include <wchar.h>
 
 #ifndef __cplusplus
 #include <stdbool.h>
 #endif
 
- // ============================================================
- //  Common defines
- // ============================================================
+// ============================================================
+//  Common defines
+// ============================================================
 
 #if defined(_MSC_VER) && _MSC_VER < 1900
 #define CXX_CONSTEXPR const
@@ -27,27 +27,24 @@
 #define CXX_CDECL
 #endif
 
-
 // ============================================================
 //  Type kinds
 // ============================================================
 
-typedef enum ESwiwTypeKind
-{
-	k_ESwiwTypeKind_Invalid = -1,
+typedef enum ESwiwTypeKind {
+  k_ESwiwTypeKind_Invalid = -1,
 
-	// 0~999: common objects
-	k_ESwiwTypeKind_Object = 0,
-	k_ESwiwTypeKind_ApiCallResult = 1,
+  // 0~999: common objects
+  k_ESwiwTypeKind_Object = 0,
+  k_ESwiwTypeKind_ApiCallResult = 1,
 
-	// 1000~1999: params
-	k_ESwiwTypeKind_InitParam = 1000,
-	k_ESwiwTypeKind_CreateViewParam = 1001,
+  // 1000~1999: params
+  k_ESwiwTypeKind_InitParam = 1000,
+  k_ESwiwTypeKind_CreateWebViewParam = 1001,
+  k_ESwiwTypeKind_CreatePopupParam = 1002,
 
-	k_ESwiwTypeKind_Max = 0x7fffffff,
+  k_ESwiwTypeKind_Max = 0x7fffffff,
 } ESwiwTypeKind;
-
-
 
 // ============================================================
 //  Types
@@ -56,90 +53,98 @@ typedef enum ESwiwTypeKind
 #ifdef __cplusplus
 
 #define SWIW_TYPE_KIND_DEF_STATIC(TypeKind) \
-	static CXX_CONSTEXPR ESwiwTypeKind k_eStaticTypeKind = TypeKind
+  static CXX_CONSTEXPR ESwiwTypeKind k_eStaticTypeKind = TypeKind
 
 //
 // ISwiwObject
 //
 
-struct ISwiwObject
-{
-	SWIW_TYPE_KIND_DEF_STATIC(k_ESwiwTypeKind_Object);
+struct ISwiwObject {
+  SWIW_TYPE_KIND_DEF_STATIC(k_ESwiwTypeKind_Object);
 
-	virtual int GetType() const = 0;
-	virtual bool GetOwnership() const = 0;
-	virtual void Release() const = 0;
-	virtual void* Query() const = 0;
-	virtual const wchar_t* ToString() const = 0;
+  virtual int32_t GetType() const = 0;
+  virtual bool GetOwnership() const = 0;
+  virtual void Release() const = 0;
+  virtual void* Query() const = 0;
+  virtual const wchar_t* ToString() const = 0;
 };
 
 //
 // ISwiwAPICallResult
 //
 
-struct ISwiwAPICallResult : ISwiwObject
-{
-	SWIW_TYPE_KIND_DEF_STATIC(k_ESwiwTypeKind_ApiCallResult);
+struct ISwiwAPICallResult : ISwiwObject {
+  SWIW_TYPE_KIND_DEF_STATIC(k_ESwiwTypeKind_ApiCallResult);
 
-	virtual bool IsOk() const = 0;
-	virtual int32_t GetErrorCode() const = 0;
-	virtual int32_t GetApiCode() const = 0;
-	virtual const wchar_t* GetErrorMsg() = 0;
+  virtual bool IsOk() const = 0;
+  virtual int32_t GetErrorCode() const = 0;
+  virtual int32_t GetApiCode() const = 0;
+  virtual const wchar_t* GetErrorMsg() = 0;
 };
 
 //
 // ISwiwInitParam
 //
 
-struct ISwiwInitParam : ISwiwObject
-{
-	SWIW_TYPE_KIND_DEF_STATIC(k_ESwiwTypeKind_InitParam);
+struct ISwiwInitParam : ISwiwObject {
+  SWIW_TYPE_KIND_DEF_STATIC(k_ESwiwTypeKind_InitParam);
 
-	// user data folder path
-	virtual const wchar_t* GetUdfPath() const = 0;
-	virtual const void SetUdfPath(const wchar_t* udfPath) = 0;
+  // user data folder path
+  virtual const wchar_t* GetUdfPath() const = 0;
+  virtual const void SetUdfPath(const wchar_t* udfPath) = 0;
 };
 
-struct ISwiwRect : ISwiwObject
-{
-	SWIW_TYPE_KIND_DEF_STATIC(k_ESwiwTypeKind_InitParam);
+struct ISwiwRect : ISwiwObject {
+  SWIW_TYPE_KIND_DEF_STATIC(k_ESwiwTypeKind_InitParam);
 
-	virtual int32_t GetX() const = 0;
-	virtual void SetX(int32_t x) = 0;
-	virtual int32_t GetY() const = 0;
-	virtual void SetY(int32_t y) = 0;
-	virtual int32_t GetWidth() const = 0;
-	virtual void SetWidth(int32_t width) = 0;
-	virtual int32_t GetHeight() const = 0;
-	virtual void SetHeight(int32_t height) = 0;
+  virtual int32_t GetX() const = 0;
+  virtual void SetX(int32_t x) = 0;
+  virtual int32_t GetY() const = 0;
+  virtual void SetY(int32_t y) = 0;
+  virtual int32_t GetWidth() const = 0;
+  virtual void SetWidth(int32_t width) = 0;
+  virtual int32_t GetHeight() const = 0;
+  virtual void SetHeight(int32_t height) = 0;
 };
 
 //
 // ISwiwCreateViewParam
 //
 
-struct ISwiwCreateViewParam : ISwiwObject
-{
-	SWIW_TYPE_KIND_DEF_STATIC(k_ESwiwTypeKind_CreateViewParam);
+struct ISwiwCreateWebViewParam : ISwiwObject {
+  SWIW_TYPE_KIND_DEF_STATIC(k_ESwiwTypeKind_CreateWebViewParam);
 
-	virtual ISwiwRect* GetRect() const = 0;
-	virtual void SetRect(const ISwiwRect* rect) = 0;
+  virtual ISwiwRect* GetRect() const = 0;
+  virtual void SetRect(const ISwiwRect* rect) = 0;
 
-	virtual const wchar_t* GetUri() const = 0;
-	virtual void SetUri(const wchar_t* uri) = 0;
+  virtual const wchar_t* GetUri() const = 0;
+  virtual void SetUri(const wchar_t* uri) = 0;
 };
 
+//
+// ISwiwCreatePopupParam
+//
 
-#else // pure c
+struct ISwiwCreatePopupParam : ISwiwObject {
+  SWIW_TYPE_KIND_DEF_STATIC(k_ESwiwTypeKind_CreatePopupParam);
+
+  virtual ISwiwRect* GetRect() const = 0;
+  virtual void SetRect(const ISwiwRect* rect) = 0;
+};
+
+#else  // pure c
 typedef struct ISwiwObject ISwiwObject;
 typedef struct ISwiwAPICallResult ISwiwAPICallResult;
 typedef struct ISwiwInitParam ISwiwInitParam;
-typedef struct ISwiwCreateViewParam ISwiwCreateViewParam;
+typedef struct ISwiwCreateWebViewParam ISwiwCreateWebViewParam;
+typedef struct ISwiwCreatePopupParam ISwiwCreatePopupParam;
 
-#endif // __cplusplus
+#endif  // __cplusplus
 
 // ============================================================
 //  Callbacks
 // ============================================================
 
-typedef void(CXX_CDECL* SwiwCallbackFn)(void* self, const ISwiwAPICallResult* res, const ISwiwObject* payload);
+typedef void(CXX_CDECL* SwiwCallbackFn)(void* self,
+                                        const ISwiwAPICallResult* res,
+                                        const ISwiwObject* payload);

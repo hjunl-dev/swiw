@@ -1,88 +1,85 @@
-#include "include/swiw.h"
+﻿#include "include/swiw.h"
 
-#include <windows.h>
 #include <stdio.h>
+#include <windows.h>
 #pragma comment(lib, "Version.lib")
 
-
 #ifdef __cplusplus
-extern "C"
-{
+extern "C" {
 #endif
 
-    void SWIW_Init()
-    {
+void SWIW_Init(const ISwiwInitParam* param) {}
 
+void SWIW_Shutdown() {}
+
+ISwiwObject* SWIW_CreateParam(int32_t param_kind) {
+  ISwiwObject* param = nullptr;
+
+  switch (static_cast<ESwiwTypeKind>(param_kind)) {
+    case k_ESwiwTypeKind_InitParam: {
+      break;
     }
-
-    void SWIW_Shutdown()
-    {
-
+    case k_ESwiwTypeKind_CreateWebViewParam: {
+      break;
     }
-
-    void SWIW_Create()
-    {
-
+    case k_ESwiwTypeKind_CreatePopupParam: {
+      break;
     }
+  }
 
-    ISwiwAPICallResult* SWIW_RegisterCallback(void* self, SwiwCallbackFn callback, int32_t eventId, void* userData)
-    {
-        return nullptr;
-    }
+  return param;
+}
 
-    void SWIW_UnregisterCallback(void* self, int32_t eventId)
-    {
+ISwiwAPICallResult* SWIW_RegisterCallback(void* self, SwiwCallbackFn callback,
+                                          int32_t eventId, void* userData) {
+  return nullptr;
+}
 
-    }
+void SWIW_UnregisterCallback(void* self, int32_t eventId) {}
 
-    void SWIW_GetVersion(wchar_t* outVersion)
-    {
-        if (!outVersion) return;
-        outVersion[0] = L'\0';
+void SWIW_CreateWebView(const ISwiwCreateWebViewParam* param) {}
 
-        HMODULE hModule = NULL;
+void SWIW_CreatePopup(const ISwiwCreatePopupParam* param) {}
 
-        ::GetModuleHandleExW(
-            GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS | GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT,
-            (LPCWSTR)&SWIW_GetVersion,
-            &hModule);
+void SWIW_GetVersion(wchar_t* outVersion) {
+  if (!outVersion) return;
+  outVersion[0] = L'\0';
 
-        if (hModule != NULL)
-        {
-            WCHAR path[MAX_PATH];
-            GetModuleFileName(hModule, path, MAX_PATH);
+  HMODULE hModule = NULL;
 
-            DWORD verHandle = 0;
-            DWORD verSize = GetFileVersionInfoSize(path, &verHandle);
+  ::GetModuleHandleExW(GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS |
+                           GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT,
+                       (LPCWSTR)&SWIW_GetVersion, &hModule);
 
-            if (verSize > 0)
-            {
-                LPVOID verData = malloc(verSize);
-                if (GetFileVersionInfo(path, verHandle, verSize, verData))
-                {
-                    UINT size = 0;
-                    LPVOID lpBuffer = NULL;
+  if (hModule != NULL) {
+    WCHAR path[MAX_PATH];
+    GetModuleFileName(hModule, path, MAX_PATH);
 
-                    if (VerQueryValue(verData, L"\\", &lpBuffer, &size) && size > 0)
-                    {
-                        VS_FIXEDFILEINFO* verInfo = (VS_FIXEDFILEINFO*)lpBuffer;
-                        if (verInfo->dwSignature == 0xfeef04bd)
-                        {
-                            swprintf_s(outVersion, 64, L"%d.%d.%d.%d",
-                                (verInfo->dwFileVersionMS >> 16) & 0xffff,
-                                (verInfo->dwFileVersionMS >> 0) & 0xffff,
-                                (verInfo->dwFileVersionLS >> 16) & 0xffff,
-                                (verInfo->dwFileVersionLS >> 0) & 0xffff
-                            );
-                        }
-                    }
-                }
-                free(verData);
-            }
+    DWORD verHandle = 0;
+    DWORD verSize = GetFileVersionInfoSize(path, &verHandle);
+
+    if (verSize > 0) {
+      LPVOID verData = malloc(verSize);
+      if (GetFileVersionInfo(path, verHandle, verSize, verData)) {
+        UINT size = 0;
+        LPVOID lpBuffer = NULL;
+
+        if (VerQueryValue(verData, L"\\", &lpBuffer, &size) && size > 0) {
+          VS_FIXEDFILEINFO* verInfo = (VS_FIXEDFILEINFO*)lpBuffer;
+          if (verInfo->dwSignature == 0xfeef04bd) {
+            swprintf_s(outVersion, 64, L"%d.%d.%d.%d",
+                       (verInfo->dwFileVersionMS >> 16) & 0xffff,
+                       (verInfo->dwFileVersionMS >> 0) & 0xffff,
+                       (verInfo->dwFileVersionLS >> 16) & 0xffff,
+                       (verInfo->dwFileVersionLS >> 0) & 0xffff);
+          }
         }
+      }
+      free(verData);
     }
+  }
+}
 
 #ifdef __cplusplus
 }
 #endif
-
