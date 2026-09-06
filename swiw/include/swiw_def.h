@@ -1,5 +1,6 @@
 ﻿/*
- * file: swiw_type.h
+ * file: swiw_def.h
+ * 
  */
 
 #pragma once
@@ -40,8 +41,9 @@ typedef enum ESwiwTypeKind {
 
   // 1000~1999: params
   k_ESwiwTypeKind_InitParam = 1000,
-  k_ESwiwTypeKind_CreateWebViewParam = 1001,
-  k_ESwiwTypeKind_CreatePopupParam = 1002,
+  k_ESwiwTypeKind_Rect = 1001,
+  k_ESwiwTypeKind_CreateWebViewParam = 1002,
+  k_ESwiwTypeKind_CreatePopupParam = 1003,
 
   k_ESwiwTypeKind_Max = 0x7fffffff,
 } ESwiwTypeKind;
@@ -64,8 +66,8 @@ struct ISwiwObject {
 
   virtual int32_t GetType() const = 0;
   virtual bool GetOwnership() const = 0;
-  virtual void Release() const = 0;
-  virtual void* Query() const = 0;
+  virtual void Release() = 0;
+  virtual void* Query(int32_t id) const = 0;
   virtual const wchar_t* ToString() const = 0;
 };
 
@@ -79,7 +81,7 @@ struct ISwiwAPICallResult : ISwiwObject {
   virtual bool IsOk() const = 0;
   virtual int32_t GetErrorCode() const = 0;
   virtual int32_t GetApiCode() const = 0;
-  virtual const wchar_t* GetErrorMsg() = 0;
+  virtual const wchar_t* GetErrorMsg() const = 0;
 };
 
 //
@@ -91,11 +93,11 @@ struct ISwiwInitParam : ISwiwObject {
 
   // user data folder path
   virtual const wchar_t* GetUdfPath() const = 0;
-  virtual const void SetUdfPath(const wchar_t* udfPath) = 0;
+  virtual void SetUdfPath(const wchar_t* udf_path) = 0;
 };
 
 struct ISwiwRect : ISwiwObject {
-  SWIW_TYPE_KIND_DEF_STATIC(k_ESwiwTypeKind_InitParam);
+  SWIW_TYPE_KIND_DEF_STATIC(k_ESwiwTypeKind_Rect);
 
   virtual int32_t GetX() const = 0;
   virtual void SetX(int32_t x) = 0;
@@ -114,7 +116,7 @@ struct ISwiwRect : ISwiwObject {
 struct ISwiwCreateWebViewParam : ISwiwObject {
   SWIW_TYPE_KIND_DEF_STATIC(k_ESwiwTypeKind_CreateWebViewParam);
 
-  virtual ISwiwRect* GetRect() const = 0;
+  virtual ISwiwRect* GetRect() = 0;
   virtual void SetRect(const ISwiwRect* rect) = 0;
 
   virtual const wchar_t* GetUri() const = 0;
@@ -128,7 +130,7 @@ struct ISwiwCreateWebViewParam : ISwiwObject {
 struct ISwiwCreatePopupParam : ISwiwObject {
   SWIW_TYPE_KIND_DEF_STATIC(k_ESwiwTypeKind_CreatePopupParam);
 
-  virtual ISwiwRect* GetRect() const = 0;
+  virtual ISwiwRect* GetRect() = 0;
   virtual void SetRect(const ISwiwRect* rect) = 0;
 };
 

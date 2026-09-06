@@ -103,8 +103,8 @@ class SwiwGuard {
  public:
   SwiwGuard() : p_(nullptr) {}
   explicit SwiwGuard(TInterface* p) : p_(p) {}
-  SwiwGuard(SwiwGuard&& other) : p_(other.p_) { other.p_ = nullptr; }
-  SwiwGuard& operator=(SwiwGuard&& other) {
+  SwiwGuard(SwiwGuard&& other) noexcept : p_(other.p_) { other.p_ = nullptr; }
+  SwiwGuard& operator=(SwiwGuard&& other) noexcept {
     if (this != &other) {
       Reset();
       p_ = other.p_;
@@ -132,7 +132,7 @@ class SwiwGuard {
     return &p_;
   }
 
-  TInterface* Release() {
+  TInterface* Detach() {
     TInterface* p = p_;
     p_ = nullptr;
     return p;

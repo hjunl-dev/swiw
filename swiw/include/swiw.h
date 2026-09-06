@@ -1,4 +1,9 @@
-﻿#pragma once
+﻿/*
+ * file: swiw.h
+ *
+ */
+
+#pragma once
 #include "swiw_def.h"
 
 #ifdef __cplusplus

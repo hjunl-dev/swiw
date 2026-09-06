@@ -1,1 +1,6 @@
-﻿#pragma once
+﻿/*
+ * file: swiw_c.h
+ *
+ */
+
+#pragma once
