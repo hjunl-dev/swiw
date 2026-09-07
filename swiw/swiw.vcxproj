@@ -168,8 +168,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
-    <ClCompile Include="src\base\api\swiw.cpp" />
-    <ClCompile Include="src\base\api\swiw_c.cpp" />
+    <ClCompile Include="src\api\swiw.cpp" />
+    <ClCompile Include="src\api\swiw_c.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="src\concurrent\bq\linked_bq.h" />
@@ -180,7 +180,7 @@
     <ClInclude Include="include\swiw_cxx.h" />
     <ClInclude Include="include\swiw_c.h" />
     <ClInclude Include="include\swiw_def.h" />
-    <ClInclude Include="src\base\api\swiw_def_internal.h" />
+    <ClInclude Include="src\api\swiw_def_internal.h" />
     <ClInclude Include="src\base\runtime\runtime.h" />
     <ClInclude Include="src\concurrent\bq.h" />
     <ClInclude Include="src\concurrent\bq\array_bq.h" />

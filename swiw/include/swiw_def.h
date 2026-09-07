@@ -1,6 +1,6 @@
 ﻿/*
  * file: swiw_def.h
- * 
+ *
  */
 
 #pragma once
@@ -29,27 +29,44 @@
 #endif
 
 // ============================================================
-//  Type kinds
+//  Enum
 // ============================================================
 
+//
+// TypeKind
+//
 typedef enum ESwiwTypeKind {
   k_ESwiwTypeKind_Invalid = -1,
 
-  // 0~999: common objects
+  // 0~499: common objects
   k_ESwiwTypeKind_Object = 0,
   k_ESwiwTypeKind_ApiCallResult = 1,
 
+  // 500~999: util objects
+  k_ESwiwTypeKind_Rect = 500,
+
   // 1000~1999: params
-  k_ESwiwTypeKind_InitParam = 1000,
-  k_ESwiwTypeKind_Rect = 1001,
-  k_ESwiwTypeKind_CreateWebViewParam = 1002,
-  k_ESwiwTypeKind_CreatePopupParam = 1003,
+  k_ESwiwTypeKind_InitConfig = 1000,
+  k_ESwiwTypeKind_CreateWebViewConfig = 1002,
+  k_ESwiwTypeKind_CreateWebUIConfig = 1003,
 
   k_ESwiwTypeKind_Max = 0x7fffffff,
 } ESwiwTypeKind;
 
+//
+// ErrorKind
+//
+typedef enum ESwiwErrorKind {
+  k_ESwiwErrorCode_Invalid = -1,
+
+  k_ESwiwErrorCode_Ok = 0,
+  k_ESwiwErrorCode_Fail = 1,
+
+  k_ESwiwErrorCode_Max = 0x7fffffff,
+} ESwiwErrorCode;
+
 // ============================================================
-//  Types
+//  Interface
 // ============================================================
 
 #ifdef __cplusplus
@@ -60,7 +77,6 @@ typedef enum ESwiwTypeKind {
 //
 // ISwiwObject
 //
-
 struct ISwiwObject {
   SWIW_TYPE_KIND_DEF_STATIC(k_ESwiwTypeKind_Object);
 
@@ -74,7 +90,6 @@ struct ISwiwObject {
 //
 // ISwiwAPICallResult
 //
-
 struct ISwiwAPICallResult : ISwiwObject {
   SWIW_TYPE_KIND_DEF_STATIC(k_ESwiwTypeKind_ApiCallResult);
 
@@ -85,17 +100,8 @@ struct ISwiwAPICallResult : ISwiwObject {
 };
 
 //
-// ISwiwInitParam
+// ISwiwRect
 //
-
-struct ISwiwInitParam : ISwiwObject {
-  SWIW_TYPE_KIND_DEF_STATIC(k_ESwiwTypeKind_InitParam);
-
-  // user data folder path
-  virtual const wchar_t* GetUdfPath() const = 0;
-  virtual void SetUdfPath(const wchar_t* udf_path) = 0;
-};
-
 struct ISwiwRect : ISwiwObject {
   SWIW_TYPE_KIND_DEF_STATIC(k_ESwiwTypeKind_Rect);
 
@@ -110,41 +116,51 @@ struct ISwiwRect : ISwiwObject {
 };
 
 //
+// ISwiwInitConfig
+//
+struct ISwiwInitConfig : ISwiwObject {
+  SWIW_TYPE_KIND_DEF_STATIC(k_ESwiwTypeKind_InitConfig);
+
+  // user data folder path
+  virtual const wchar_t* GetUdfPath() const = 0;
+  virtual void SetUdfPath(const wchar_t* udf_path) = 0;
+};
+
+//
 // ISwiwCreateViewParam
 //
+struct ISwiwCreateWebViewConfig : ISwiwObject {
+  SWIW_TYPE_KIND_DEF_STATIC(k_ESwiwTypeKind_CreateWebViewConfig);
 
-struct ISwiwCreateWebViewParam : ISwiwObject {
-  SWIW_TYPE_KIND_DEF_STATIC(k_ESwiwTypeKind_CreateWebViewParam);
-
-  virtual ISwiwRect* GetRect() = 0;
+  virtual const ISwiwRect* GetRect() const = 0;
   virtual void SetRect(const ISwiwRect* rect) = 0;
+  virtual void SetRectValues(int32_t x, int32_t y, int32_t w, int32_t h) = 0;
 
   virtual const wchar_t* GetUri() const = 0;
   virtual void SetUri(const wchar_t* uri) = 0;
 };
-
 //
-// ISwiwCreatePopupParam
+// ISwiwCreateWebUIParam
 //
+struct ISwiwCreateWebUIConfig : ISwiwObject {
+  SWIW_TYPE_KIND_DEF_STATIC(k_ESwiwTypeKind_CreateWebUIConfig);
 
-struct ISwiwCreatePopupParam : ISwiwObject {
-  SWIW_TYPE_KIND_DEF_STATIC(k_ESwiwTypeKind_CreatePopupParam);
-
-  virtual ISwiwRect* GetRect() = 0;
+  virtual const ISwiwRect* GetRect() const = 0;
   virtual void SetRect(const ISwiwRect* rect) = 0;
+  virtual void SetRectValues(int32_t x, int32_t y, int32_t w, int32_t h) = 0;
 };
-
-#else  // pure c
+#else
+// pure c (opaque handle)
 typedef struct ISwiwObject ISwiwObject;
 typedef struct ISwiwAPICallResult ISwiwAPICallResult;
+typedef struct ISwiwRect ISwiwRect;
 typedef struct ISwiwInitParam ISwiwInitParam;
-typedef struct ISwiwCreateWebViewParam ISwiwCreateWebViewParam;
-typedef struct ISwiwCreatePopupParam ISwiwCreatePopupParam;
-
+typedef struct ISwiwCreateWebViewConfig ISwiwCreateWebViewConfig;
+typedef struct ISwiwCreateWebUIConfig ISwiwCreateWebUIConfig;
 #endif  // __cplusplus
 
 // ============================================================
-//  Callbacks
+//  Callback
 // ============================================================
 
 typedef void(CXX_CDECL* SwiwCallbackFn)(void* self,

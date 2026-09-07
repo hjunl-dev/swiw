@@ -18,10 +18,10 @@
     <ClCompile Include="dllmain.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="src\base\api\swiw.cpp">
+    <ClCompile Include="src\api\swiw.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="src\base\api\swiw_c.cpp">
+    <ClCompile Include="src\api\swiw_c.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -62,7 +62,7 @@
     <ClInclude Include="src\platform\gui\window.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="src\base\api\swiw_def_internal.h">
+    <ClInclude Include="src\api\swiw_def_internal.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="src\concurrent\executor\thread_per_task.h">

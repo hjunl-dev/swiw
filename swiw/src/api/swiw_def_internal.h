@@ -71,17 +71,16 @@ struct SwiwObjectBase : public TInterface {
                        ownership_, static_cast<const void*>(this));
   }
 
-  int32_t type_ = k_ESwiwTypeKind_Invalid;
   bool ownership_ = false;
 
  private:
+  int32_t type_ = k_ESwiwTypeKind_Invalid;
   mutable std::wstring str_cache_;
 };
 
 //
 // SwiwAPICallResultImpl
 //
-
 struct SwiwAPICallResultImpl final
     : SwiwObjectBase<SwiwAPICallResultImpl, ISwiwAPICallResult> {
   bool IsOk() const override { return error_code_ == 0; }
@@ -105,17 +104,17 @@ struct SwiwAPICallResultImpl final
 };
 
 //
-// SwiwInitParamImpl
+// SwiwInitConfigImpl
 //
-struct SwiwInitParamImpl final
-    : SwiwObjectBase<SwiwInitParamImpl, ISwiwInitParam> {
+struct SwiwInitConfigImpl final
+    : SwiwObjectBase<SwiwInitConfigImpl, ISwiwInitConfig> {
   const wchar_t* GetUdfPath() const override { return udf_path_.c_str(); }
   void SetUdfPath(const wchar_t* udf_path) override {
     udf_path_ = udf_path ? udf_path : L"";
   }
 
   std::wstring ToStringImpl() const {
-    return std::format(L"SwiwInitParam{{udfPath=\"{}\"}}", udf_path_);
+    return std::format(L"SwiwInitConfig{{udfPath=\"{}\"}}", udf_path_);
   }
 
  private:
@@ -148,24 +147,28 @@ struct SwiwRectImpl final : SwiwObjectBase<SwiwRectImpl, ISwiwRect> {
 };
 
 //
-// SwiwCreateWebViewParamImpl
+// SwiwCreateWebViewConfigImpl
 //
-struct SwiwCreateWebViewParamImpl final
-    : SwiwObjectBase<SwiwCreateWebViewParamImpl, ISwiwCreateWebViewParam> {
-  ISwiwRect* GetRect() override { return &rect_; }
+struct SwiwCreateWebViewConfigImpl final
+    : SwiwObjectBase<SwiwCreateWebViewConfigImpl, ISwiwCreateWebViewConfig> {
+  const ISwiwRect* GetRect() const override { return &rect_; }
   void SetRect(const ISwiwRect* rect) override {
     if (rect == nullptr) return;
-    rect_.SetX(rect->GetX());
-    rect_.SetY(rect->GetY());
-    rect_.SetWidth(rect->GetWidth());
-    rect_.SetHeight(rect->GetHeight());
+    SetRectValues(rect->GetX(), rect->GetY(), rect->GetWidth(),
+                  rect->GetHeight());
+  }
+  void SetRectValues(int32_t x, int32_t y, int32_t w, int32_t h) override {
+    rect_.SetX(x);
+    rect_.SetY(y);
+    rect_.SetWidth(w);
+    rect_.SetHeight(h);
   }
 
   const wchar_t* GetUri() const override { return uri_.c_str(); }
   void SetUri(const wchar_t* uri) override { uri_ = uri ? uri : L""; }
 
   std::wstring ToStringImpl() const {
-    return std::format(L"SwiwCreateWebViewParam{{uri=\"{}\", rect={}}}", uri_,
+    return std::format(L"SwiwCreateWebViewConfig{{uri=\"{}\", rect={}}}", uri_,
                        rect_.ToStringImpl());
   }
 
@@ -175,22 +178,25 @@ struct SwiwCreateWebViewParamImpl final
 };
 
 //
-// SwiwCreatePopupParamImpl
+// SwiwCreateWebUIConfigImpl
 //
-
-struct SwiwCreatePopupParamImpl final
-    : SwiwObjectBase<SwiwCreatePopupParamImpl, ISwiwCreatePopupParam> {
-  ISwiwRect* GetRect() override { return &rect_; }
+struct SwiwCreateWebUIConfigImpl final
+    : SwiwObjectBase<SwiwCreateWebUIConfigImpl, ISwiwCreateWebUIConfig> {
+  const ISwiwRect* GetRect() const override { return &rect_; }
   void SetRect(const ISwiwRect* rect) override {
     if (rect == nullptr) return;
-    rect_.SetX(rect->GetX());
-    rect_.SetY(rect->GetY());
-    rect_.SetWidth(rect->GetWidth());
-    rect_.SetHeight(rect->GetHeight());
+    SetRectValues(rect->GetX(), rect->GetY(), rect->GetWidth(),
+                  rect->GetHeight());
+  }
+  void SetRectValues(int32_t x, int32_t y, int32_t w, int32_t h) override {
+    rect_.SetX(x);
+    rect_.SetY(y);
+    rect_.SetWidth(w);
+    rect_.SetHeight(h);
   }
 
   std::wstring ToStringImpl() const {
-    return std::format(L"SwiwCreatePopupParam{{rect={}}}",
+    return std::format(L"SwiwCreateWebUIConfig{{rect={}}}",
                        rect_.ToStringImpl());
   }
 
