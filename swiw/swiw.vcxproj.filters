@@ -107,5 +107,8 @@
     <ClInclude Include="include\swiw_cxx.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="src\concurrent\concurrent.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
