@@ -29,7 +29,7 @@
     <None Include="swiw.def">
       <Filter>소스 파일</Filter>
     </None>
-    <None Include="src\concurrent\bq\linked_bq.h" />
+    <None Include="src\tmp\bq\linked_bq.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\swiw.h">
@@ -44,16 +44,16 @@
     <ClInclude Include="src\base\runtime\runtime.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="src\concurrent\bq.h">
+    <ClInclude Include="src\tmp\bq.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="src\concurrent\bq\array_bq.h">
+    <ClInclude Include="src\tmp\bq\array_bq.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="src\concurrent\executor.h">
+    <ClInclude Include="src\tmp\executor.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="src\concurrent\executor\thread_pool.h">
+    <ClInclude Include="src\tmp\executor\thread_pool.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="src\platform\gui.h">
@@ -65,31 +65,31 @@
     <ClInclude Include="src\api\swiw_def_internal.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="src\concurrent\executor\thread_per_task.h">
+    <ClInclude Include="src\tmp\executor\thread_per_task.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="src\concurrent\executor\work_stealing.h">
+    <ClInclude Include="src\tmp\executor\work_stealing.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="src\concurrent\channel.h">
+    <ClInclude Include="src\tmp\channel.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="src\concurrent\channel\mpsc.h">
+    <ClInclude Include="src\tmp\channel\mpsc.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="src\concurrent\channel\mpmc.h">
+    <ClInclude Include="src\tmp\channel\mpmc.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="src\concurrent\bq\rendezvous_q.h">
+    <ClInclude Include="src\tmp\bq\rendezvous_q.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="src\concurrent\lock.h">
+    <ClInclude Include="src\tmp\lock.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="src\concurrent\lock\owner_mutex.h">
+    <ClInclude Include="src\tmp\lock\owner_mutex.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="src\concurrent\lock\condition.h">
+    <ClInclude Include="src\tmp\lock\condition.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="src\platform\net.h">
@@ -107,7 +107,10 @@
     <ClInclude Include="include\swiw_cxx.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="src\concurrent\concurrent.h">
+    <ClInclude Include="src\tmp\concurrent.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\base\result.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
