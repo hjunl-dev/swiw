@@ -10,7 +10,9 @@
 #include <string>
 #include <type_traits>
 
-namespace swiw::concurrent {
+#include "result.h"
+
+namespace swiw::base {
 
 // ============================================================
 // Errors
@@ -71,10 +73,10 @@ class BQ {
  public:
   virtual ~BQ() = default;
 
-  virtual PushError Push(T& item) = 0;
-  virtual PushError TryPush(T& item) = 0;
+  virtual Result<void, PushError> Push(T& item) = 0;
+  virtual Result<void, PushError> TryPush(T& item) = 0;
 
-  virtual PopError Pop(T& out_item) = 0;
-  virtual PopError TryPop(T& out_item) = 0;
+  virtual Result<T, PopError> Pop() = 0;
+  virtual Result<T, PopError> TryPop() = 0;
 };
 }  // namespace swiw::concurrent

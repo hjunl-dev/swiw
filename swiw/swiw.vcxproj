@@ -189,7 +189,7 @@
     <ClInclude Include="src\tmp\channel.h" />
     <ClInclude Include="src\tmp\channel\mpmc.h" />
     <ClInclude Include="src\tmp\channel\mpsc.h" />
-    <ClInclude Include="src\tmp\concurrent.h" />
+    <ClInclude Include="src\base\concurrent.h" />
     <ClInclude Include="src\tmp\executor.h" />
     <ClInclude Include="src\tmp\executor\thread_per_task.h" />
     <ClInclude Include="src\tmp\executor\thread_pool.h" />
