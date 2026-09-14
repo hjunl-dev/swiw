@@ -1,6 +1,6 @@
 ﻿/*
- * file: concurrent.h
- * Simple concurrent implementation based on hio (rust)
+ * file: async.h
+ * Simple async implementation based on hio (rust) (concurrent)
  */
 #pragma once
 
@@ -10,7 +10,7 @@
 #include <string>
 #include <type_traits>
 
-#include "result.h"
+#include "src/base/common/result.h"
 
 namespace swiw::base {
 
@@ -79,4 +79,4 @@ class BQ {
   virtual Result<T, PopError> Pop() = 0;
   virtual Result<T, PopError> TryPop() = 0;
 };
-}  // namespace swiw::concurrent
+}  // namespace swiw::base

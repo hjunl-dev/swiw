@@ -3,7 +3,7 @@
 #include <type_traits>
 #include <variant>
 
-namespace swiw::base {
+namespace swiw::common {
 
 // ============================================================
 // Err
@@ -81,4 +81,4 @@ class [[nodiscard]] Result<void, E> {
   std::optional<E> err_;
 };
 
-}  // namespace swiw::base
+}  // namespace swiw::common

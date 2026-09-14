@@ -18,10 +18,10 @@
     <ClCompile Include="dllmain.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="src\api\swiw.cpp">
+    <ClCompile Include="src\ffi\swiw.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="src\api\swiw_c.cpp">
+    <ClCompile Include="src\ffi\swiw_c.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -62,7 +62,7 @@
     <ClInclude Include="src\platform\gui\window.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="src\api\swiw_def_internal.h">
+    <ClInclude Include="src\ffi\swiw_def_internal.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="src\tmp\executor\thread_per_task.h">
@@ -107,10 +107,13 @@
     <ClInclude Include="include\swiw_cxx.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="src\base\concurrent.h">
+    <ClInclude Include="src\base\common\result.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="src\base\result.h">
+    <ClInclude Include="src\base\async\async.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\base\common\common.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
