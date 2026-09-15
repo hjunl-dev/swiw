@@ -10,8 +10,7 @@ namespace swiw::async {
 enum class PushError : uint8_t { Disposed, WouldBlock };
 enum class PopError : uint8_t { Disposed, WouldBlock };
 
-template <typename T>
-using PushResult = swiw::common::Result<T, PushError>;
+using PushResult = swiw::common::Result<void, PushError>;
 
 template <typename T>
 using PopResult = swiw::common::Result<T, PopError>;

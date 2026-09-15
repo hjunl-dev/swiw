@@ -14,12 +14,10 @@ class [[nodiscard]] WaiterGuard {
   explicit WaiterGuard(Waiters& w) noexcept : w_(w) {
     w_.fetch_add(1, std::memory_order_relaxed);
   }
-  ~WaiterGuard() { w_.fetch_sub(1, std::memory_order_relaxed); }
-
   WaiterGuard(const WaiterGuard&) = delete;
   WaiterGuard(WaiterGuard&&) = delete;
-  WaiterGuard& operator=(const WaiterGuard&) = delete;
-  WaiterGuard& operator=(WaiterGuard&&) = delete;
+
+  ~WaiterGuard() { w_.fetch_sub(1, std::memory_order_relaxed); }
 
  private:
   Waiters& w_;
