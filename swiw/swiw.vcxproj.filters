@@ -24,6 +24,9 @@
     <ClCompile Include="src\ffi\swiw_c.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="src\ffi\swiw_runtime.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="swiw.def">
@@ -110,10 +113,31 @@
     <ClInclude Include="src\base\common\result.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="src\base\async\async.h">
+    <ClInclude Include="src\base\common\common.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="src\base\common\common.h">
+    <ClInclude Include="src\base\async\lbq.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\base\async\task_pool.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\base\common\guard.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ffi\swiw_runtime.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\base\async\cond_waiters.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\base\async\bq.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\base\async\error.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\base\async\cache_padded.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

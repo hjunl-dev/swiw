@@ -170,6 +170,7 @@
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="src\ffi\swiw.cpp" />
     <ClCompile Include="src\ffi\swiw_c.cpp" />
+    <ClCompile Include="src\ffi\swiw_runtime.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="src\tmp\bq\linked_bq.h" />
@@ -180,11 +181,18 @@
     <ClInclude Include="include\swiw_cxx.h" />
     <ClInclude Include="include\swiw_c.h" />
     <ClInclude Include="include\swiw_def.h" />
+    <ClInclude Include="src\base\async\bq.h" />
+    <ClInclude Include="src\base\async\cache_padded.h" />
+    <ClInclude Include="src\base\async\cond_waiters.h" />
+    <ClInclude Include="src\base\async\error.h" />
+    <ClInclude Include="src\base\async\lbq.h" />
+    <ClInclude Include="src\base\async\task_pool.h" />
     <ClInclude Include="src\base\common\common.h" />
+    <ClInclude Include="src\base\common\guard.h" />
     <ClInclude Include="src\ffi\swiw_def_internal.h" />
-    <ClInclude Include="src\base\async\async.h" />
     <ClInclude Include="src\base\common\result.h" />
     <ClInclude Include="src\base\runtime\runtime.h" />
+    <ClInclude Include="src\ffi\swiw_runtime.h" />
     <ClInclude Include="src\tmp\bq.h" />
     <ClInclude Include="src\tmp\bq\array_bq.h" />
     <ClInclude Include="src\tmp\bq\rendezvous_q.h" />
