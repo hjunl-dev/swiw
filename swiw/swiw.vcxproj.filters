@@ -24,7 +24,7 @@
     <ClCompile Include="src\ffi\swiw_c.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="src\ffi\swiw_runtime.cpp">
+    <ClCompile Include="src\ffi\runtime.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -42,9 +42,6 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="include\swiw_def.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="src\base\runtime\runtime.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="src\tmp\bq.h">
@@ -116,16 +113,16 @@
     <ClInclude Include="src\base\common\common.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="src\base\async\lbq.h">
+    <ClInclude Include="src\base\async\linked_bq.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="src\base\async\task_pool.h">
+    <ClInclude Include="src\base\async\task_executor.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="src\base\common\scoped.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="src\ffi\swiw_runtime.h">
+    <ClInclude Include="src\ffi\runtime.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="src\base\async\cond_waiters.h">

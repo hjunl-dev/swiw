@@ -95,7 +95,7 @@
       <LanguageStandard>stdcpp20</LanguageStandard>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)src;$(ProjectDir)include</AdditionalIncludeDirectories>
       <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
@@ -116,7 +116,7 @@
       <LanguageStandard>stdcpp20</LanguageStandard>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)src;$(ProjectDir)include</AdditionalIncludeDirectories>
       <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
@@ -135,7 +135,7 @@
       <LanguageStandard>stdcpp20</LanguageStandard>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)src;$(ProjectDir)include</AdditionalIncludeDirectories>
       <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
@@ -156,7 +156,7 @@
       <LanguageStandard>stdcpp20</LanguageStandard>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)src;$(ProjectDir)include</AdditionalIncludeDirectories>
       <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
@@ -170,7 +170,7 @@
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="src\ffi\swiw.cpp" />
     <ClCompile Include="src\ffi\swiw_c.cpp" />
-    <ClCompile Include="src\ffi\swiw_runtime.cpp" />
+    <ClCompile Include="src\ffi\runtime.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="src\tmp\bq\linked_bq.h" />
@@ -185,14 +185,13 @@
     <ClInclude Include="src\base\async\cache_padded.h" />
     <ClInclude Include="src\base\async\cond_waiters.h" />
     <ClInclude Include="src\base\async\error.h" />
-    <ClInclude Include="src\base\async\lbq.h" />
-    <ClInclude Include="src\base\async\task_pool.h" />
+    <ClInclude Include="src\base\async\linked_bq.h" />
+    <ClInclude Include="src\base\async\task_executor.h" />
     <ClInclude Include="src\base\common\common.h" />
     <ClInclude Include="src\base\common\scoped.h" />
     <ClInclude Include="src\ffi\swiw_def_internal.h" />
     <ClInclude Include="src\base\common\result.h" />
-    <ClInclude Include="src\base\runtime\runtime.h" />
-    <ClInclude Include="src\ffi\swiw_runtime.h" />
+    <ClInclude Include="src\ffi\runtime.h" />
     <ClInclude Include="src\tmp\bq.h" />
     <ClInclude Include="src\tmp\bq\array_bq.h" />
     <ClInclude Include="src\tmp\bq\rendezvous_q.h" />

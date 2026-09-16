@@ -4,7 +4,7 @@
 namespace swiw::async {
 
 // ============================================================
-// std::condition_variable waiter count for optimize LBQ<T>
+// std::condition_variable waiter count for optimize Blocking Queue
 // ============================================================
 
 using Waiters = std::atomic_size_t;
